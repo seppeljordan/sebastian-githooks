@@ -3,7 +3,7 @@
 import subprocess
 
 from lines import checkfile
-from changedfiles import get_changedFiles
+import changedfiles
 
 def stashIndex():
     cmd = "git stash --keep-index --quiet".split()
@@ -19,7 +19,7 @@ def cleanup(exitcode):
 
 stashIndex()
 linesOK = True
-for filename in get_changedFiles():
+for filename in changedfiles.get_allExceptDeletions():
     if not checkfile(filename):
        linesOK = False
 
