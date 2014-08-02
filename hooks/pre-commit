@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+from lines import checkfile
+from changedfiles import get_changedFiles
+
+def stashIndex():
+    cmd = "git stash --keep-index --quiet".split()
+    subprocess.call(cmd)
+
+def stashPop():
+    cmd = "git stash pop --quiet".split()
+    subprocess.call(cmd)
+
+def cleanup(exitcode):
+    stashPop()
+    exit(exitcode)
+
+stashIndex()
+linesOK = True
+for filename in get_changedFiles():
+    if not checkfile(filename):
+       linesOK = False
+
+if not linesOK:
+
+    cleanup(1)
+
+cleanup(0)
