@@ -1,0 +1,4 @@
+Testdatei
+
+Diese Zeile endet mit Leerzeichen    
+Diese Zeile ist einfach nur zu lang.  Diese Zeile ist einfach nur zu lang.  Diese Zeile ist einfach nur zu lang.
