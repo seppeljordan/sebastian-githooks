@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+#+title: GIT HOOKS FOR BETTER CODE FORMATTING
+* Introduction
+  This repository provides some git hooks to check the formatting of
+  the code of a git repo.
+
+* Installation
+  Copy the python modules and the hook(s) into your `.git/hooks'
+  directory by executing `bash install-hooks.sh' in the root of your
+  repository.
