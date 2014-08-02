@@ -20,8 +20,12 @@ def cleanup(exitcode):
 stashIndex()
 linesOK = True
 for filename in changedfiles.get_allExceptDeletions():
-    if not checkfile(filename):
-       linesOK = False
+    try:
+        if not checkfile(filename):
+            linesOK = False
+    except e:
+        print(e)
+        cleanup(1)
 
 if not linesOK:
 

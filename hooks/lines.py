@@ -19,6 +19,11 @@ def checkSpaces(line):
 
 
 def checkfile(filename):
+    """Check formatting of file
+
+    Check the file given by filename for trailing whitespaces and long
+    lines (>80 characters).
+    """
     fd = open(filename)
 
     passing = True
@@ -33,10 +38,7 @@ def checkfile(filename):
             print("Trailing whitespaces: "+ filename + ": line "+str(i))
             passing = False
 
-    if passing:
-        return True
-    else:
-        return False
+    return passing
 
 
 if __name__ == "__main__":
