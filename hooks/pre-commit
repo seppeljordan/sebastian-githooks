@@ -21,18 +21,27 @@ def cleanup(exitcode):
     exit(exitcode)
 
 
-stashIndex()
-linesOK = True
-for filename in changedfiles.get_allExceptDeletions():
-    try:
-        if not checkfile(filename):
-            linesOK = False
-    except e:
-        print(e)
+def checkformatting:
+    """Check formatting staged files"""
+    print("Check formatting...")
+    linesOK = True
+    for filename in changedfiles.get_allExceptDeletions():
+        try:
+            if not checkfile(filename):
+                linesOK = False
+        except e:
+            print(e)
+            cleanup(1)
+
+    if not linesOK:
+        print("*** Found formatting mistakes")
         cleanup(1)
+    print("... formatting OK")
 
-if not linesOK:
 
-    cleanup(1)
-
+# stash non-staged changes away
+stashIndex()
+# check the formatting staged files
+checkformatting()
+# recover changes from stash
 cleanup(0)
