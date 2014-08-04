@@ -5,17 +5,21 @@ import subprocess
 from lines import checkfile
 import changedfiles
 
+
 def stashIndex():
     cmd = "git stash --keep-index --quiet".split()
     subprocess.call(cmd)
+
 
 def stashPop():
     cmd = "git stash pop --quiet".split()
     subprocess.call(cmd)
 
+
 def cleanup(exitcode):
     stashPop()
     exit(exitcode)
+
 
 stashIndex()
 linesOK = True
