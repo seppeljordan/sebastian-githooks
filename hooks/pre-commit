@@ -21,7 +21,7 @@ def cleanup(exitcode):
     exit(exitcode)
 
 
-def checkformatting:
+def checkformatting():
     """Check formatting staged files"""
     print("Check formatting...")
     linesOK = True
